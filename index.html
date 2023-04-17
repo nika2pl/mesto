@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto</title>
+</head>
+
+<body class="page">
+    <header class="header">
+        <img src="./images/logo.svg" alt="Логотип сервиса Место" class="header__logo logo">
+    </header>
+
+    <main class="main">
+        <section class="profile">
+            <img src="./images/kusto.jpg" alt="Аватар" class="profile__avatar">
+            <div class="profile__info">
+                <div class="profile__wrapper">
+                    <h2 class="profile__name">Жак-Ив Кусто</h2>
+                    <button type="button" class="profile__edit-button"></button>
+                </div>
+                <p class="profile__position">Исследователь океана</p>
+            </div>
+            <button type="button" class="profile__add-button"></button>
+        </section>
+
+        <section class="gallery">
+            <ul class="gallery__list">
+                <li class="gallery__card">
+                    <img src="./images/karachaevsk.jpg" alt="Карачеевск" class="gallery__image">
+                    <div class="gallery__wrapper">
+                        <h3 class="gallery__title">Карачеевск</h3>
+                        <div class="gallery__like-wrapper">
+                            <button type="button" class="gallery__like-button"></button>
+                        </div>
+                    </div>
+                </li>
+                <li class="gallery__card">
+                    <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="gallery__image">
+                    <div class="gallery__wrapper">
+                        <h3 class="gallery__title">Гора Эльбрус</h3>
+                        <div class="gallery__like-wrapper">
+                            <button type="button" class="gallery__like-button"></button>
+                        </div>
+                    </div>
+                </li>
+                <li class="gallery__card">
+                    <img src="./images/dombai.jpg" alt="Домбай" class="gallery__image">
+                    <div class="gallery__wrapper">
+                        <h3 class="gallery__title">Домбай</h3>
+                        <div class="gallery__like-wrapper">
+                            <button type="button" class="gallery__like-button"></button>
+                        </div>
+                    </div>
+                </li>
+                <li class="gallery__card">
+                    <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="gallery__image">
+                    <div class="gallery__wrapper">
+                        <h3 class="gallery__title">Гора Эльбрус</h3>
+                        <div class="gallery__like-wrapper">
+                            <button type="button" class="gallery__like-button"></button>
+                        </div>
+                    </div>
+                </li>
+                <li class="gallery__card">
+                    <img src="./images/dombai.jpg" alt="Домбай" class="gallery__image">
+                    <div class="gallery__wrapper">
+                        <h3 class="gallery__title">Домбай</h3>
+                        <div class="gallery__like-wrapper">
+                            <button type="button" class="gallery__like-button"></button>
+                        </div>
+                    </div>
+                </li>
+                <li class="gallery__card">
+                    <img src="./images/karachaevsk.jpg" alt="Карачеевск" class="gallery__image">
+                    <div class="gallery__wrapper">
+                        <h3 class="gallery__title">Карачеевск</h3>
+                        <div class="gallery__like-wrapper">
+                            <button type="button" class="gallery__like-button"></button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__copyright">&copy;&nbsp;2023 Mesto Russia</p>
+    </footer>
+
+    <section class="popup" id="popup-edit-profile">
+        <div class="popup__container">
+            <button type="button" class="popup__close-button"></button>
+            <form class="popup__form">
+                <p class="popup__title">Редактировать профиль</p>
+                <label for="profile__name" class="popup__label">
+                    <input type="text" name="profile__name" class="popup__input name_input" placeholder="Жак-Ив Кусто">
+                </label>
+
+                <label for="profile__position" class="popup__label">
+                    <input type="text" name="profile__position" class="popup__input job_input" placeholder="Исследователь океана">
+                </label>
+                <button type="submit" class="popup__button">Сохранить</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="./vendor/js/index.js"></script>
+</body>
+
+</html>
