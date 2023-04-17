@@ -96,12 +96,14 @@
             <button type="button" class="popup__close-button"></button>
             <form class="popup__form">
                 <p class="popup__title">Редактировать профиль</p>
-                <label class="popup__label">
-                    <input type="text" name="profile__name" class="popup__input name_input" placeholder="Жак-Ив Кусто">
+                <label for="name_input" class="popup__label">
+                    <input type="text" id="name_input" name="profile__name" class="popup__input"
+                        placeholder="Жак-Ив Кусто">
                 </label>
 
-                <label class="popup__label">
-                    <input type="text" name="profile__position" class="popup__input job_input" placeholder="Исследователь океана">
+                <label for="job_input" class="popup__label">
+                    <input type="text" id="job_input" name="profile__position" class="popup__input"
+                        placeholder="Исследователь океана">
                 </label>
                 <button type="submit" class="popup__button">Сохранить</button>
             </form>

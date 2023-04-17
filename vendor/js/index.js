@@ -1,8 +1,8 @@
 let profileName = document.querySelector('.profile__name');
 let profilePosition = document.querySelector('.profile__position')
 
-let nameInput = document.querySelector('.name_input');
-let jobInput = document.querySelector('.job_input');
+let nameInput = document.querySelector('#name_input');
+let jobInput = document.querySelector('#job_input');
 
 let formElement = document.querySelector('.popup__form')
 
