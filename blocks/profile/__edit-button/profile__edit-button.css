@@ -6,8 +6,7 @@
   width: 24px;
   height: 24px;
   background-color: transparent;
-  border: 2px solid #fff;
-  border-radius: 2px;
+  border: 1px solid #fff;
   transition: .2s;
   outline: none;
 }

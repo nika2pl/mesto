@@ -2,3 +2,7 @@
   align-items: baseline;
   display: flex;
 }
+
+@media screen and (max-width: 325px) {
+  justify-content: center;
+}
