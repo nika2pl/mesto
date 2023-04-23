@@ -1,7 +1,7 @@
 .profile__about {
   font-family: 'Inter', Arial, sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 21.78px;
   color: #fff;
   text-overflow: ellipsis;
@@ -11,12 +11,6 @@
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 915px) {
-  .profile__about {
-    font-size: 14px;
-    line-height: 17px;
-  }
-}
 
 @media screen and (max-width: 620px) {
   .profile__about {
