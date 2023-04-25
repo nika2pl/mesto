@@ -19,9 +19,12 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 475px) {
-  .popup__button {
+@media screen and (max-width: 644px){
+.popup__button {
     font-size: 14px;
     line-height: 17px;
-  }
+    width: 238px;
+    height: 46px;
+    margin: 0;
+}
 }

@@ -3,9 +3,3 @@
   flex-direction: column;
   font-size: 14px;
 }
-
-@media screen and (max-width: 475px) {
-  .popup__form {
-    max-width: 238px;
-  }
-}
