@@ -6,7 +6,7 @@
   line-height: 29.05px;
   max-width: calc(100% - 28px);
   padding-top: 34px;
-  padding-bottom: 54px;
+  padding-bottom: 50px;
   color: black;
 }
 
@@ -15,7 +15,7 @@
     font-size: 18px;
     line-height: 22px;
     max-width: 238px;
-    margin: 0 0 75px;
+    margin: 0 0 70px;
     padding: 0;
   }
 }

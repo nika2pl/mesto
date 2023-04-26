@@ -1,19 +1,19 @@
-.popup__label:not(:last-of-type) {
-    margin-bottom: 5px;
-}
-
 .popup__label:last-of-type {
     margin-bottom: 20px;
 }
 
 @media (min-width: 644px) {
     .popup__label:last-of-type {
-        margin-bottom: 45px;
+        margin-bottom: 12px;
     }
 }
 
 @media (max-width: 644px) {
     .popup__label:last-of-type {
-        margin-bottom: 10px;
+        margin-bottom: 44px;
+    }
+
+    .popup__label:not(:last-of-type) {
+        margin-bottom: 30px;
     }
 }
