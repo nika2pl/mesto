@@ -116,7 +116,7 @@ const addCard = (name, link) => {
         popupImage.alt = cardName.textContent;
         popupDescription.textContent = cardName.textContent;
 
-        popupZoomPicture.classList.add('popup_opened');
+        openPopup(popupZoomPicture);
     });
 
     // handle like button
