@@ -7,3 +7,7 @@
   overflow: hidden;
   position: relative;
 }
+
+.gallery__card:hover {
+  cursor: pointer;
+}

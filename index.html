@@ -28,50 +28,7 @@
         </section>
 
         <section class="gallery">
-            <ul class="gallery__list">
-                <li class="gallery__card">
-                    <img src="./images/karachaevsk.jpg" alt="Карачеевск" class="gallery__image">
-                    <div class="gallery__wrapper">
-                        <h2 class="gallery__title">Карачеевск</h2>
-                        <button type="button" class="gallery__like-button"></button>
-                    </div>
-                </li>
-                <li class="gallery__card">
-                    <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="gallery__image">
-                    <div class="gallery__wrapper">
-                        <h2 class="gallery__title">Гора Эльбрус</h2>
-                        <button type="button" class="gallery__like-button"></button>
-                    </div>
-                </li>
-                <li class="gallery__card">
-                    <img src="./images/dombai.jpg" alt="Домбай" class="gallery__image">
-                    <div class="gallery__wrapper">
-                        <h2 class="gallery__title">Домбай</h2>
-                        <button type="button" class="gallery__like-button"></button>
-                    </div>
-                </li>
-                <li class="gallery__card">
-                    <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="gallery__image">
-                    <div class="gallery__wrapper">
-                        <h2 class="gallery__title">Гора Эльбрус</h2>
-                        <button type="button" class="gallery__like-button"></button>
-                    </div>
-                </li>
-                <li class="gallery__card">
-                    <img src="./images/dombai.jpg" alt="Домбай" class="gallery__image">
-                    <div class="gallery__wrapper">
-                        <h2 class="gallery__title">Домбай</h2>
-                        <button type="button" class="gallery__like-button"></button>
-                    </div>
-                </li>
-                <li class="gallery__card">
-                    <img src="./images/karachaevsk.jpg" alt="Карачеевск" class="gallery__image">
-                    <div class="gallery__wrapper">
-                        <h2 class="gallery__title">Карачеевск</h2>
-                        <button type="button" class="gallery__like-button"></button>
-                    </div>
-                </li>
-            </ul>
+            <ul class="gallery__list"></ul>
         </section>
     </main>
 
@@ -81,7 +38,7 @@
 
     <section class="popup" id="popup-edit-profile">
         <div class="popup__container">
-            <button type="button" class="popup__close-button"></button>
+            <button type="button" class="popup__close-button popup__close-edit-profile-button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
 
             <form class="popup__form" name="popup__form">
@@ -91,13 +48,52 @@
                 </label>
 
                 <label for="position" class="popup__label">
-                    <input type="text" id="position" name="profile__position" class="popup__input popup__input_data_position"
-                        placeholder="Исследователь океана">
+                    <input type="text" id="position" name="profile__position"
+                        class="popup__input popup__input_data_position" placeholder="Исследователь океана">
                 </label>
                 <button type="submit" class="popup__button">Сохранить</button>
             </form>
         </div>
     </section>
+
+    <section class="popup" id="popup-add-card">
+        <div class="popup__container">
+            <button type="button" class="popup__close-button popup__close-add-card-button"></button>
+            <h2 class="popup__title">Новое место</h2>
+
+            <form class="popup__form popup__add-card-form" name="popup__form">
+                <label for="place" class="popup__label">
+                    <input type="text" id="place" name="profile__place" class="popup__input popup__input_data_place"
+                        placeholder="Название">
+                </label>
+
+                <label for="image" class="popup__label">
+                    <input type="text" id="image" name="profile__image" class="popup__input popup__input_data_image"
+                        placeholder="Ссылка на картинку">
+                </label>
+                <button type="submit" class="popup__button popup__add-card-button">Создать</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="image-popup" class="popup popup_zoom">
+        <div class="popup__zoom-container">
+            <button type="button" class="popup__close-button popup__close-zoom-picture-button"></button>
+            <img src="#" class="popup__image" alt="">
+            <p class="popup__description"></p>
+        </div>
+    </div>
+
+    <template id="card-template">
+        <li class="gallery__card">
+            <button type="button" class="gallery__delete-button"></button>
+            <img src="" alt="" class="gallery__image">
+            <div class="gallery__wrapper">
+                <h2 class="gallery__title"></h2>
+                <button type="button" class="gallery__like-button"></button>
+            </div>
+        </li>
+    </template>
 
     <script src="./scripts/index.js"></script>
 </body>
