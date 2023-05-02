@@ -92,6 +92,9 @@ addCardButton.addEventListener('click', function () {
 })
 
 editButton.addEventListener('click', function () {
+    nameInput.value = profileName.textContent;
+    jobInput.value = profilePosition.textContent;
+
     openPopup(popupEditProfile);
 })
 
