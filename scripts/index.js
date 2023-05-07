@@ -24,8 +24,14 @@ const popupZoomPicture = document.querySelector('.popup_zoom');
 
 const closeButtons = document.querySelectorAll('.popup__close-button');
 
-const popup = document.querySelector('.popup');
-
+const validationDefaultConfig = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error_active'
+};
 
 nameInput.value = profileName.textContent;
 jobInput.value = profilePosition.textContent;
@@ -96,12 +102,16 @@ closeButtons.forEach((button) => {
 });
 
 addCardButton.addEventListener('click', function () {
+    enableValidation(validationDefaultConfig);
+
     openPopup(popupAddCard);
 })
 
 editButton.addEventListener('click', function () {
     nameInput.value = profileName.textContent;
     jobInput.value = profilePosition.textContent;
+
+    enableValidation(validationDefaultConfig);
 
     openPopup(popupEditProfile);
 })
