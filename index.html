@@ -44,12 +44,15 @@
             <form class="popup__form popup__edit-profile-form" name="popup__form">
                 <label for="name" class="popup__label">
                     <input type="text" id="name" name="profile__name" class="popup__input popup__input_data_name"
-                        placeholder="Жак-Ив Кусто">
+                        placeholder="Жак-Ив Кусто" minlength="2" maxlength="40" required>
+                    <span class="popup__input-error name-error"></span>
                 </label>
 
                 <label for="position" class="popup__label">
                     <input type="text" id="position" name="profile__position"
-                        class="popup__input popup__input_data_position" placeholder="Исследователь океана">
+                        class="popup__input popup__input_data_position" placeholder="Исследователь океана"
+                         minlength="2" maxlength="200" required>
+                    <span class="popup__input-error position-error"></span>
                 </label>
                 <button type="submit" class="popup__button">Сохранить</button>
             </form>
@@ -64,19 +67,21 @@
             <form class="popup__form popup__add-card-form" name="popup__form">
                 <label for="place" class="popup__label">
                     <input type="text" id="place" name="profile__place" class="popup__input popup__input_data_place"
-                        placeholder="Название">
+                        placeholder="Название" minlength="2" maxlength="30" required>
+                    <span class="popup__input-error place-error"></span>
                 </label>
 
                 <label for="image" class="popup__label">
-                    <input type="text" id="image" name="profile__image" class="popup__input popup__input_data_image"
-                        placeholder="Ссылка на картинку">
+                    <input type="url" id="image" name="profile__image" class="popup__input popup__input_data_image"
+                        placeholder="Ссылка на картинку" required>
+                    <span class="popup__input-error image-error"></span>
                 </label>
                 <button type="submit" class="popup__button popup__add-card-button">Создать</button>
             </form>
         </div>
     </section>
 
-    <div id="image-popup" class="popup popup_zoom">
+    <div id="popup-image-zoom" class="popup popup_zoom">
         <div class="popup__zoom-container">
             <button type="button" class="popup__close-button popup__close-zoom-picture-button"></button>
             <img src="#" class="popup__image" alt="">
@@ -96,6 +101,7 @@
     </template>
 
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body>
 
 </html>
