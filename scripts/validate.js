@@ -1,3 +1,12 @@
+const validationDefaultConfig = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error_active'
+};
+
 const showError = (formElement, inputElement, errorMessage, { inputErrorClass, errorClass }) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
@@ -15,8 +24,6 @@ const hideError = (formElement, inputElement, { inputErrorClass, errorClass }) =
 };
 
 const updateValidationState = (formElement, inputElement, config) => {
-    console.log(inputElement);
-    console.log(formElement)
     if (!inputElement.validity.valid) {
         showError(formElement, inputElement, inputElement.validationMessage, config);
     } else {
@@ -33,6 +40,7 @@ const initEventListeners = (formElement, { inputSelector, submitButtonSelector, 
     inputList.forEach(function (inputElement) {
         inputElement.addEventListener('input', function () {
             updateValidationState(formElement, inputElement, config);
+            console.log(inputList)
             updateSubmitBtnValidationState(inputList, buttonElement, config);
         });
     });
@@ -62,11 +70,4 @@ const updateSubmitBtnValidationState = (inputList, buttonElement, { inactiveButt
     };
 };
 
-enableValidation({
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__input-error_active'
-});
+enableValidation(validationDefaultConfig);

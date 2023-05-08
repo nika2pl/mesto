@@ -24,15 +24,6 @@ const popupZoomPicture = document.querySelector('.popup_zoom');
 
 const closeButtons = document.querySelectorAll('.popup__close-button');
 
-const validationDefaultConfig = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__input-error_active'
-};
-
 nameInput.value = profileName.textContent;
 jobInput.value = profilePosition.textContent;
 
@@ -102,7 +93,7 @@ closeButtons.forEach((button) => {
 });
 
 addCardButton.addEventListener('click', function () {
-    enableValidation(validationDefaultConfig);
+    updateSubmitBtnValidationState(inputList, formAddCardElement.querySelector(validationDefaultConfig.submitButtonSelector), validationDefaultConfig);
 
     openPopup(popupAddCard);
 })
@@ -111,14 +102,13 @@ editButton.addEventListener('click', function () {
     nameInput.value = profileName.textContent;
     jobInput.value = profilePosition.textContent;
 
-    enableValidation(validationDefaultConfig);
+    updateSubmitBtnValidationState(inputList, formEditProfileElement.querySelector(validationDefaultConfig.submitButtonSelector), validationDefaultConfig);
 
     openPopup(popupEditProfile);
 })
 
 formEditProfileElement.addEventListener('submit', handleEditProfileFormSubmit);
 formAddCardElement.addEventListener('submit', handleAddCardFormSubmit);
-
 
 // handle click overlay
 const handleClickOverlay = (evt) => {
