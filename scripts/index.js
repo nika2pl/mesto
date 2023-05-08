@@ -93,6 +93,7 @@ closeButtons.forEach((button) => {
 });
 
 addCardButton.addEventListener('click', function () {
+    var inputList = Array.from(formAddCardElement.querySelectorAll(validationDefaultConfig.inputSelector));
     updateSubmitBtnValidationState(inputList, formAddCardElement.querySelector(validationDefaultConfig.submitButtonSelector), validationDefaultConfig);
 
     openPopup(popupAddCard);
@@ -102,6 +103,7 @@ editButton.addEventListener('click', function () {
     nameInput.value = profileName.textContent;
     jobInput.value = profilePosition.textContent;
 
+    var inputList = Array.from(formEditProfileElement.querySelectorAll(validationDefaultConfig.inputSelector));
     updateSubmitBtnValidationState(inputList, formEditProfileElement.querySelector(validationDefaultConfig.submitButtonSelector), validationDefaultConfig);
 
     openPopup(popupEditProfile);
