@@ -47,8 +47,8 @@ const jobInput = document.querySelector('.popup__input_data_position');
 const placeInput = document.querySelector('.popup__input_data_place');
 const imageInput = document.querySelector('.popup__input_data_image');
 
-const formEditProfileElement = document.querySelector('.popup__edit-profile-form');
-const formAddCardElement = document.querySelector('.popup__add-card-form');
+const formEditProfileElement = document.forms["popup__edit-profile-form"];
+const formAddCardElement = document.forms["popup__add-card-form"];
 
 const editButton = document.querySelector('.profile__edit-button');
 const addCardButton = document.querySelector('.profile__add-button');
@@ -70,36 +70,49 @@ const openPopup = function (popup) {
 }
 
 const closePopup = function (popup) {
+  document.removeEventListener('keydown', handleEscButton);
   popup.classList.remove('popup_opened');
 }
 
-initialCards.forEach(
-  card => {
-    const newCard = new Card({ name: card.name, image: card.link }, classListForm.templateCard);
-    galleryList.append(newCard.renderCard());
-  }
-)
+function createCard(card) {
+  const newCard = new Card({ name: card.name, image: card.link }, classListForm.templateCard, handleCardClick);
 
-closeButtons.forEach((button) => {
-  // находим 1 раз ближайший к крестику попап
-  const popup = button.closest('.popup');
-  // устанавливаем обработчик закрытия на крестик
-  button.addEventListener('click', () => closePopup(popup));
+  return newCard;
+}
+
+
+initialCards.forEach((card) => {
+  const newCard = createCard(card);
+  galleryList.append(newCard.renderCard());
 });
 
 
-// handle click overlay
-const handleClickOverlay = (evt) => {
-  if (evt.target.classList.contains('popup_opened')) {
-    closePopup(evt.target);
-  };
-};
+function handleCardClick(name, link) {
+  popupImage.src = this._image;
+  popupImage.alt = this._name;
+  popupDescription.textContent = this._name;
+
+  openPopup(popupZoomPicture);
+}
+
+// обработчики клика на крестик и оверлей
+const popups = document.querySelectorAll('.popup')
+
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup)
+    }
+    if (evt.target.classList.contains('popup__close-button')) {
+      closePopup(popup)
+    }
+  })
+})
 
 // handle esc button
 const handleEscButton = (evt) => {
   if (evt.key === 'Escape') {
     const popupOpened = document.querySelector('.popup_opened');
-    document.removeEventListener('keydown', handleEscButton);
     closePopup(popupOpened);
   };
 };
@@ -120,6 +133,9 @@ addCardButton.addEventListener('click', function () {
 // handle edit profile button
 editButton.addEventListener('click', function () {
   editProfileValidate.toggleButtonState();
+  nameInput.value = profileName.textContent;
+  jobInput.value = profilePosition.textContent;
+
   openPopup(popupEditProfile);
 })
 
@@ -130,27 +146,24 @@ const handleProfileFormSubmit = function (evt) {
   profileName.textContent = nameInput.value;
   profilePosition.textContent = jobInput.value;
 
-  evt.target.reset()
-
   closePopup(popupEditProfile);
 }
 
 const handleAddCardFormSubmit = function (evt) {
   evt.preventDefault();
 
-  const newCard = new Card({ name: placeInput.value, image: imageInput.value }, classListForm.templateCard);
-  galleryList.append(newCard.renderCard());
+  const newCard = new Card({ name: placeInput.value, image: imageInput.value }, classListForm.templateCard, handleCardClick);
+  galleryList.prepend(newCard.renderCard());
 
   evt.target.reset()
 
   closePopup(popupAddCard);
 }
 
+
+
 formAddCardElement.addEventListener('submit', handleAddCardFormSubmit);
 formEditProfileElement.addEventListener('submit', handleProfileFormSubmit);
 
-popupEditProfile.addEventListener('click', handleClickOverlay)
-popupAddCard.addEventListener('click', handleClickOverlay)
-popupZoomPicture.addEventListener('click', handleClickOverlay)
 
 export { popupZoomPicture, popupImage, popupDescription, handleEscButton };
