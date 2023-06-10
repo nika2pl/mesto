@@ -77,13 +77,13 @@ const closePopup = function (popup) {
 function createCard(card) {
   const newCard = new Card({ name: card.name, image: card.link }, classListForm.templateCard, handleCardClick);
 
-  return newCard;
+  return newCard.renderCard();
 }
 
 
 initialCards.forEach((card) => {
   const newCard = createCard(card);
-  galleryList.append(newCard.renderCard());
+  galleryList.append(newCard);
 });
 
 
@@ -152,8 +152,8 @@ const handleProfileFormSubmit = function (evt) {
 const handleAddCardFormSubmit = function (evt) {
   evt.preventDefault();
 
-  const newCard = new Card({ name: placeInput.value, image: imageInput.value }, classListForm.templateCard, handleCardClick);
-  galleryList.prepend(newCard.renderCard());
+  const newCard = createCard({ name: placeInput.value, link: imageInput.value });
+  galleryList.prepend(newCard);
 
   evt.target.reset()
 
