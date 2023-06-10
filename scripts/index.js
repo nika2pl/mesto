@@ -83,14 +83,15 @@ function createCard(card) {
 
 initialCards.forEach((card) => {
   const newCard = createCard(card);
+
   galleryList.append(newCard);
 });
 
 
 function handleCardClick(name, link) {
-  popupImage.src = this._image;
-  popupImage.alt = this._name;
-  popupDescription.textContent = this._name;
+  popupImage.src = link;
+  popupImage.alt = name;
+  popupDescription.textContent = name;
 
   openPopup(popupZoomPicture);
 }

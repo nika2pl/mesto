@@ -20,7 +20,7 @@ class Card {
     this._elementDelete.addEventListener('click', event => this._deleteCard(event));
     // zoom picture
     this._elementImage.addEventListener('click', () => {
-      this._handleCardClick(this._name, this._link)
+      this._handleCardClick(this._name, this._image)
     });
   }
 
