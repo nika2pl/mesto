@@ -8,7 +8,6 @@ class FormValidator {
 
   _showValidationError(inputItem, errorMessage) {
     const errorItem = this._formElement.querySelector(`.${inputItem.id}-error`);
-    console.log(errorMessage)
     inputItem.classList.add(this._validationSettings.inputErrorClass);
     errorItem.textContent = errorMessage;
     errorItem.classList.add(this._validationSettings.errorClass);
@@ -22,7 +21,7 @@ class FormValidator {
   }
 
   _checkInputValidity(inputItem) {
-    if (inputItem.validity.valid === false) {
+    if (!inputItem.validity.valid) {
       this._showValidationError(inputItem, inputItem.validationMessage);
     } else {
       this._hideValidationError(inputItem);

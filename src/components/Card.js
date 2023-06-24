@@ -22,18 +22,18 @@ export class Card {
 
     this._elementImage.src = this._link;
     this._elementImage.alt = this._name;
-    
+
     return this._elementCard;
   }
 
   _setEventListeners() {
     // toogle like
-    this._elementLike.addEventListener('click', event => this._toggleLike(event))
+    this._elementLike.addEventListener('click', event => this._toggleLike())
     // delete card
-    this._elementDelete.addEventListener('click', event => this._deleteCard(event));
+    this._elementDelete.addEventListener('click', event => this._deleteCard());
     // zoom picture
     this._elementImage.addEventListener('click', () => {
-      this._handleCardClick(this._name, this._image)
+      this._handleCardClick(this._name, this._link)
     });
   }
 
@@ -41,7 +41,7 @@ export class Card {
     this._elementCard.remove();
   }
 
-  _toggleLike = (event) => {
-    event.target.classList.toggle('gallery__like_button_active');
+  _toggleLike = () => {
+    this._elementLike.classList.toggle('gallery__like_button_active');
   }
 }
