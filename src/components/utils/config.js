@@ -37,14 +37,14 @@ export const classListForm =  {
   zoomUrl: '.popup__image',
   zoomDesc: '.popup__description',
   inactiveButtonClass: 'popup__button_disabled',
+  profileName: '.profile__name',
+  profileDesc: '.profile__about',
 }
 
 // popup edit profile
 export const popupEditProfileForm = document.querySelector('.popup__edit-profile-form');
 export const popupEditProfile = document.querySelector('#popup-edit-profile');
 export const openEditPopup = document.querySelector('.profile__edit-button');
-export const profileName = document.querySelector('.profile__name');
-export const profileDesc = document.querySelector('.profile__about');
 export const inputUserName = popupEditProfileForm.querySelector('.popup__input_data_name');
 export const inputUserDescription = popupEditProfileForm.querySelector('.popup__input_data_position');
 

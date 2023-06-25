@@ -10,12 +10,12 @@ import { FormValidator } from "../components/FormValidator.js";
 
 const createCard = (item) => {
   const card = new Card({ place: item.place, url: item.url }, '#card-template', {
-    handleClick: () => {
-      popupWithImage.open(item.place, item.url);
+    handleClick: (name, image) => {
+      popupWithImage.open(name, image);
     }
   });
-  const cardItem = card.generateCard();
-  return cardItem;
+
+  return card.generateCard();
 }
 
 const cardList = new Section({
@@ -24,15 +24,15 @@ const cardList = new Section({
   }
 }, config.classListForm.galleryList);
 
-cardList.rendererItems();
+cardList.renderItems();
 
 // popup zoom image
 const popupWithImage = new PopupWithImage(config.classListForm.popupZoom, config.classListForm.zoomUrl, config.classListForm.zoomDesc);
 popupWithImage.setEventListeners();
 
 // popup add card
-const formAddPhotoValidator = new FormValidator(config.classListForm, config.popupAdd);
-formAddPhotoValidator.enableValidationCheck();
+const formAddCardValidator = new FormValidator(config.classListForm, config.popupAdd);
+formAddCardValidator.enableValidationCheck();
 
 const popupAddForm = new PopupWithForm(config.classListForm.formAddPhoto, {
   handleSubmitForm: (item) => {
@@ -42,6 +42,7 @@ const popupAddForm = new PopupWithForm(config.classListForm.formAddPhoto, {
 });
 
 config.openAddPopup.addEventListener('click', () => {
+  formAddCardValidator.disableSubmitButton();
   popupAddForm.open();
 });
 
@@ -49,7 +50,7 @@ popupAddForm.setEventListeners();
 
 
 // popup edit profile
-const userInfo = new UserInfo({ userName: config.profileName, userJob: config.profileDesc });
+const userInfo = new UserInfo(config.classListForm.profileName, config.classListForm.profileDesc);
 const formEditProfileValidator = new FormValidator(config.classListForm, config.popupEditProfile);
 formEditProfileValidator.enableValidationCheck();
 
