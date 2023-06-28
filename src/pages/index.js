@@ -35,9 +35,10 @@ const createCard = (item) => {
         api.deleteCard(id).then(() => {
           card.deleteCard();
           popupAreUSure.close();
-          popupAreUSure.setLoadingState('Да');
         }).catch(err => {
           console.log(err)
+        }).finally(() => {
+          popupAreUSure.setLoadingState('Да');
         });
       });
     },
@@ -140,8 +141,7 @@ config.openEditPopup.addEventListener('click', () => {
   formEditProfileValidator.disableSubmitButton();
   userPopupForm.open();
 
-  config.inputUserName.value = userconfig.name;
-  config.inputUserDescription.value = userconfig.description;
+  userPopupForm.setInputValues({ profile__name: userconfig.name, profile__position: userconfig.description })
 });
 
 userPopupForm.setEventListeners();

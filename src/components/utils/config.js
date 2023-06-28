@@ -21,8 +21,6 @@ export const classListForm = {
 export const popupEditProfileForm = document.querySelector('.popup__edit-profile-form');
 export const popupEditProfile = document.querySelector('#popup-edit-profile');
 export const openEditPopup = document.querySelector('.profile__edit-button');
-export const inputUserName = popupEditProfileForm.querySelector('.popup__input_data_name');
-export const inputUserDescription = popupEditProfileForm.querySelector('.popup__input_data_position');
 
 // popup add card
 export const popupAdd = document.querySelector('#popup-add-card');
