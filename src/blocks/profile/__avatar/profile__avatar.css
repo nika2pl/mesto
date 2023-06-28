@@ -3,7 +3,10 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
+  position: relative;
+  z-index: -1;
 }
+
 
 @media screen and (min-width: 620px) {
   .profile__avatar {

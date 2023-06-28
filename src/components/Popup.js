@@ -4,6 +4,11 @@ export default class Popup {
     this.close = this.close.bind(this);
     this._handleEscClose = this._handleEscClose.bind(this);
     this._closeByClick = this._closeByClick.bind(this);
+    this._popupBUtton = this._popup.querySelector('.popup__button');
+  }
+
+  setLoadingState(text) {
+    this._popupBUtton.textContent = text
   }
 
   open() {

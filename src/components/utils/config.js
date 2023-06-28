@@ -1,31 +1,4 @@
-export const initialCards = [
-  {
-    place: 'Архыз',
-    url: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    place: 'Челябинская область',
-    url: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    place: 'Иваново',
-    url: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    place: 'Камчатка',
-    url: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    place: 'Холмогорский район',
-    url: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    place: 'Байкал',
-    url: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-export const classListForm =  {
+export const classListForm = {
   galleryList: '.gallery__list',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
@@ -34,11 +7,14 @@ export const classListForm =  {
   formEditProfile: '#popup-edit-profile',
   formAddPhoto: '#popup-add-card',
   popupZoom: '.popup_zoom',
+  popupConfirm: '.popup_confirm',
   zoomUrl: '.popup__image',
   zoomDesc: '.popup__description',
   inactiveButtonClass: 'popup__button_disabled',
   profileName: '.profile__name',
   profileDesc: '.profile__about',
+  profileAvatar: '.profile__avatar',
+  popupAvatarEdit: '.popup_avatar-edit'
 }
 
 // popup edit profile
@@ -51,3 +27,6 @@ export const inputUserDescription = popupEditProfileForm.querySelector('.popup__
 // popup add card
 export const popupAdd = document.querySelector('#popup-add-card');
 export const openAddPopup = document.querySelector('.profile__add-button');
+
+// avatar edit button
+export const profileAvatarEditButton = document.querySelector('.profile__avatar-edit-button');
