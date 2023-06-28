@@ -26,8 +26,6 @@ var classListForm = {
 var popupEditProfileForm = document.querySelector('.popup__edit-profile-form');
 var popupEditProfile = document.querySelector('#popup-edit-profile');
 var openEditPopup = document.querySelector('.profile__edit-button');
-var inputUserName = popupEditProfileForm.querySelector('.popup__input_data_name');
-var inputUserDescription = popupEditProfileForm.querySelector('.popup__input_data_position');
 
 // popup add card
 var popupAdd = document.querySelector('#popup-add-card');
@@ -354,6 +352,14 @@ var PopupWithForm = /*#__PURE__*/function (_Popup) {
     return _this;
   }
   PopupWithForm_createClass(PopupWithForm, [{
+    key: "setInputValues",
+    value: function setInputValues(data) {
+      this._inputList.forEach(function (input) {
+        // тут вставляем в `value` инпута данные из объекта по атрибуту `name` этого инпута
+        input.value = data[input.name];
+      });
+    }
+  }, {
     key: "_getInputValues",
     value: function _getInputValues() {
       var formValues = {};
@@ -1270,9 +1276,10 @@ var createCard = function createCard(item) {
         api.deleteCard(id).then(function () {
           card.deleteCard();
           popupAreUSure.close();
-          popupAreUSure.setLoadingState('Да');
         }).catch(function (err) {
           console.log(err);
+        }).finally(function () {
+          popupAreUSure.setLoadingState('Да');
         });
       });
     },
@@ -1371,8 +1378,10 @@ openEditPopup.addEventListener('click', function () {
   var userconfig = userInfo.getUserInfo();
   formEditProfileValidator.disableSubmitButton();
   userPopupForm.open();
-  inputUserName.value = userconfig.name;
-  inputUserDescription.value = userconfig.description;
+  userPopupForm.setInputValues({
+    profile__name: userconfig.name,
+    profile__position: userconfig.description
+  });
 });
 userPopupForm.setEventListeners();
 Promise.all([api.getInitialCards(), api.getUserInfo()]).then(function (_ref) {
