@@ -1320,10 +1320,11 @@ var popupAddForm = new PopupWithForm(classListForm.formAddPhoto, {
     popupAddForm.setLoadingState('Сохранение...');
     api.addCard(item).then(function (data) {
       cardList.addItem(createCard(data));
-      popupAddForm.setLoadingState('Создать');
-      popupAddForm.close();
     }).catch(function (err) {
       return console.log(err);
+    }).finally(function () {
+      popupAddForm.setLoadingState('Создать');
+      popupAddForm.close();
     });
   }
 });
@@ -1343,15 +1344,17 @@ var popupAvatarEdit = new PopupWithForm(classListForm.popupAvatarEdit, {
       avatar: item.link
     }).then(function (data) {
       document.querySelector(classListForm.profileAvatar).src = data.avatar;
-      popupAvatarEdit.setLoadingState('Сохранить');
-      popupAvatarEdit.close();
     }).catch(function (err) {
       return console.log(err);
+    }).finally(function () {
+      popupAvatarEdit.setLoadingState('Сохранить');
+      popupAvatarEdit.close();
     });
   }
 });
 popupAvatarEdit.setEventListeners();
 profileAvatarEditButton.addEventListener('click', function () {
+  formAvatarEditValidator.disableSubmitButton();
   popupAvatarEdit.open();
 });
 
@@ -1367,10 +1370,11 @@ var userPopupForm = new PopupWithForm(classListForm.formEditProfile, {
       about: item.profile__position
     }).then(function (data) {
       userInfo.setUserInfo(data);
-      userPopupForm.setLoadingState('Сохранить');
-      userPopupForm.close();
     }).catch(function (err) {
       return console.log(err);
+    }).finally(function () {
+      userPopupForm.setLoadingState('Сохранить');
+      userPopupForm.close();
     });
   }
 });
