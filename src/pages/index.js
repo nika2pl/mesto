@@ -82,9 +82,10 @@ const popupAddForm = new PopupWithForm(config.classListForm.formAddPhoto, {
     api.addCard(item)
       .then((data) => {
         cardList.addItem(createCard(data));
+      }).catch((err) => console.log(err)).finally(() => {
         popupAddForm.setLoadingState('Создать');
         popupAddForm.close();
-      }).catch((err) => console.log(err))
+      });
   }
 });
 
@@ -106,14 +107,16 @@ const popupAvatarEdit = new PopupWithForm(config.classListForm.popupAvatarEdit, 
     api.changeAvatar({ avatar: item.link })
       .then((data) => {
         document.querySelector(config.classListForm.profileAvatar).src = data.avatar;
+      }).catch((err) => console.log(err)).finally(() => {
         popupAvatarEdit.setLoadingState('Сохранить');
         popupAvatarEdit.close();
-      }).catch((err) => console.log(err))
+      });
   }
 })
 popupAvatarEdit.setEventListeners();
 
 config.profileAvatarEditButton.addEventListener('click', () => {
+  formAvatarEditValidator.disableSubmitButton();
   popupAvatarEdit.open();
 });
 
@@ -129,9 +132,10 @@ const userPopupForm = new PopupWithForm(config.classListForm.formEditProfile, {
     api.setUserInfo({ name: item.profile__name, about: item.profile__position })
       .then((data) => {
         userInfo.setUserInfo(data);
+      }).catch((err) => console.log(err)).finally(() => {
         userPopupForm.setLoadingState('Сохранить');
         userPopupForm.close();
-      }).catch((err) => console.log(err))
+      });
   }
 });
 
